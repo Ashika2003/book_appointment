@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .category-section {
+            margin-bottom: 40px;
+        }
+        .category-section h2 {
+            font-size: 28px;
+            color: #333;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .blog-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .blog-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .blog-card h3 {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+        .blog-card p {
+            font-size: 16px;
+            color: #666;
+        }
+        .blog-card .summary {
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Blogs by Category</h1>
+        
+        <div class="category-section" id="mental-health">
+            <h2>Mental Health</h2>
+            {% for blog in mental_health %}
+            <div class="blog-card">
+                <img src="{{ blog.image.url }}" alt="{{ blog.title }}">
+                <h3>{{ blog.title }}</h3>
+                <p class="summary">Summary: {{ blog.summary }}</p>
+                <p>{{ blog.content }}</p>
+            </div>
+            {% empty %}
+            <p>No blogs found in this category.</p>
+            {% endfor %}
+        </div>
+        
+        <div class="category-section" id="heart-disease">
+            <h2>Heart Disease</h2>
+            {% for blog in heart_disease %}
+            <div class="blog-card">
+                <img src="{{ blog.image.url }}" alt="{{ blog.title }}">
+                <h3>{{ blog.title }}</h3>
+                <p class="summary">Summary: {{ blog.summary }}</p>
+                <p>{{ blog.content }}</p>
+            </div>
+            {% empty %}
+            <p>No blogs found in this category.</p>
+            {% endfor %}
+        </div>
+        
+        <div class="category-section" id="covid-19">
+            <h2>Covid19</h2>
+            {% for blog in covid19 %}
+            <div class="blog-card">
+                <img src="{{ blog.image.url }}" alt="{{ blog.title }}">
+                <h3>{{ blog.title }}</h3>
+                <p class="summary">Summary: {{ blog.summary }}</p>
+                <p>{{ blog.content }}</p>
+            </div>
+            {% empty %}
+            <p>No blogs found in this category.</p>
+            {% endfor %}
+        </div>
+        
+        <div class="category-section" id="immunization">
+            <h2>Immunization</h2>
+            {% for blog in immunization %}
+            <div class="blog-card">
+                <img src="{{ blog.image.url }}" alt="{{ blog.title }}">
+                <h3>{{ blog.title }}</h3>
+                <p class="summary">Summary: {{ blog.summary }}</p>
+                <p>{{ blog.content }}</p>
+            </div>
+            {% empty %}
+            <p>No blogs found in this category.</p>
+            {% endfor %}
+        </div>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .doctor-card {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .doctor-card:last-child {
+            border-bottom: none;
+        }
+        .profile-picture {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 20px;
+        }
+        .profile-picture img {
+            width: 100%;
+            height: auto;
+        }
+        .doctor-info {
+            flex-grow: 1;
+        }
+        .doctor-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0;
+        }
+        .book-appointment {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .book-appointment:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Doctors List</h1>
+        {% for doctor in doctors %}
+        <div class="doctor-card">
+            <div class="profile-picture">
+                <img src="{{ doctor.profile_picture.url }}" alt="Profile Picture">
+            </div>
+            <div class="doctor-info">
+                <p class="doctor-name">{{ doctor.first_name }}   {{doctor.last_name }}</p>
+            </div>
+            <a href="{% url 'book-appointment' doctor.id %}" class="book-appointment">Book Appointment</a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

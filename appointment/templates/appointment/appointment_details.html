@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #007bff;
+        }
+        p {
+            font-size: 16px;
+            color: #333333;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Appointment Details</h1>
+        <p>Doctor: {{ appointment.doctor.first_name }}</p>
+        <p>Patient: {{ appointment.patient.username }}</p>
+        <p>Specialty: {{ appointment.specialty }}</p>
+        <p>Date: {{ appointment.date }}</p>
+        <p>Start Time: {{ appointment.start_time }}</p>
+        <p>End Time: {{ appointment.end_time }}</p>
+        <p>Calender Url: <a href={{appointment.url}}>Calender Url </a></p>
+    </div>
+</body>
+</html>

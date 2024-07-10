@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Blogs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .blog-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .blog-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .blog-card h2 {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+        .blog-card p {
+            font-size: 16px;
+            color: #666;
+        }
+        .blog-card .category {
+            font-weight: bold;
+            color: #333;
+        }
+        .blog-card .summary {
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Blogs</h1>
+        {% for blog in blogs %}
+        <div class="blog-card">
+            <img src="{{ blog.image.url }}" alt="{{ blog.title }}">
+            <h2>{{ blog.title }}</h2>
+            <p class="category">Category: {{ blog.category }}</p>
+            <p class="summary">Summary: {{ blog.summary }}</p>
+            <p>{{ blog.content }}</p>
+        </div>
+        {% empty %}
+        <p>No blogs found.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>

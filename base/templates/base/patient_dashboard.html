@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Dashboard - Banao</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .navbar {
+            width: 100%;
+            background-color: #333;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 10px 0;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .navbar .company-name {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .navbar .nav-right {
+            float: right;
+        }
+        .container {
+            max-width: 800px;
+            margin: 60px auto 0; /* Adjusted margin to account for fixed navbar */
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        h2 {
+            margin-top: 20px;
+            color: #555;
+        }
+        p {
+            color: #666;
+        }
+        img {
+            width: 150px;
+            height: 200px;
+            border-radius: 50%;
+            margin-top: 10px;
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .btn {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#" class="company-name">Banao</a>
+        <div class="nav-right">
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
+    </div>
+    <div class="container">
+        <h1>PATIENT DASHBOARD</h1>
+        <h1>Welcome, {{ profile.user.username }}</h1>
+        <h2>Your Profile</h2>
+        <p>First Name: {{ profile.first_name }}</p>
+        <p>Last Name: {{ profile.last_name }}</p>
+        <p>Address: {{ profile.address }}</p>
+        <p>Profile Picture: </p> <p><img src="{{ profile.profile_picture.url }}" alt="Profile Picture"></p>
+        <a href="{% url 'read-blogs' %}" class="btn">Read Blogs</a>
+        <a href="{% url 'list-doctors' %}" class="btn">Book Appointment</a>
+    </div>
+</body>
+</html>
